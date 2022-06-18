@@ -1,3 +1,12 @@
+let numeroDeCartas = Number(prompt("Olá! Por favor, digite um número PAR entre 4 e 14"));                     
+
+while (numeroDeCartas < 4 || numeroDeCartas > 14 || numeroDeCartas % 2 !== 0) {
+    alert('numero invalido');
+    numeroDeCartas = Number(prompt("Olá! Por favor, digite um número PAR entre 4 e 14"));
+}
+
+darCartas();
+
 let carta1 = `<div class="card" onclick="virarCarta(this);">
 <img class="frente" src="./img/front.png" alt="">
 <img class="verso" src="./img/bobrossparrot.gif" alt="">
@@ -13,25 +22,32 @@ let carta3 = `<div class="card" onclick="virarCarta(this);">
 <img class="verso" src="./img/fiestaparrot.gif" alt="">
 </div>`
 
+let carta4 = `<div class="card" onclick="virarCarta(this);">
+<img class="frente" src="./img/front.png" alt="">
+<img class="verso" src="./img/metalparrot.gif" alt="">
+</div>`
 
-const baralho = [
-    //fazer uma array com as cartas
-]
+let carta5 = `<div class="card" onclick="virarCarta(this);">
+<img class="frente" src="./img/front.png" alt="">
+<img class="verso" src="./img/revertitparrot.gif" alt="">
+</div>`
 
-function definirNumero() {
-    const numeroDeCartas = Number(prompt("Olá! Por favor, digite um número PAR entre 4 e 14"));
-    if (numeroDeCartas % 2 !== 0) {
-        alert('Número inválido')
-    } else if (numeroDeCartas < 4 || numeroDeCartas > 14) {
-        alert('Número inválido')
-    } else {
-        darCartas();
-    }
-}
+let carta6 = `<div class="card" onclick="virarCarta(this);">
+<img class="frente" src="./img/front.png" alt="">
+<img class="verso" src="./img/tripletsparrot.gif" alt="">
+</div>`
+
+let carta7 = `<div class="card" onclick="virarCarta(this);">
+<img class="frente" src="./img/front.png" alt="">
+<img class="verso" src="./img/unicornparrot.gif" alt="">
+</div>`
+
+const baralho = [carta1, carta2, carta3, carta4, carta5, carta6, carta7];
+
 
 function darCartas () {
-    //se o numero for x
-    //pegar x cartas da array e colocar x*2 na tela
+    alert('oi')
+    //document.querySelector('.baralho').innerHTML = Math.random(numeroDeCartas)
 }
 
 function virarCarta (elemento) {
