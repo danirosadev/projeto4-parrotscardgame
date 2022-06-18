@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #EEF9BF;
     font-family: 'Roboto', sans-serif;
@@ -26,15 +30,16 @@ h2 {
 }
 
 .baralho {
+    width: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
 }
 
-.baralho {
-	transition: transform 0.8s;
-	position: relative;
-}
-
-.frente, .verso {
+.card {
     width: 117px;
     height: 146px;
     background-color: #A7E9AF;
@@ -43,23 +48,50 @@ h2 {
     justify-content: center;
     align-items: center;
     border: 1px solid #99CEA8;
+    transition: transform 0.5s;
+    position: relative;
+}
+
+.card:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+  }
+
+.frente, .verso {
     position: absolute;
-    backface-visibility: hidden;
 }
 
 .verso {
+    opacity: 0;
+}
+
+.virada {
     transform: rotateY(180deg);
 }
 
-.baralho:hover .card{
-    transform: rotateY(180deg);
+.virada .frente {
+    opacity: 0;
 }
 
-.card {
-
+.virada .verso {
+    opacity: 1;
 }
 
 .card img {
     width: 100px;
     height: 100px;
+}
+
+@media (max-width: 768px){
+    .cabecalho {
+        width: 100vw;
+    }
+
+    h2 {
+        font-size: 36px
+    }
+
+    .baralho {
+        width: 100vw;
+    }
 }
