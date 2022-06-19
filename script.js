@@ -7,47 +7,24 @@ while (numeroDeCartas < 4 || numeroDeCartas > 14 || numeroDeCartas % 2 !== 0) {
 
 darCartas();
 
-let carta1 = `<div class="card" onclick="virarCarta(this);">
-<img class="frente" src="./img/front.png" alt="">
-<img class="verso" src="./img/bobrossparrot.gif" alt="">
-</div>`
+const nomesGifs = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
 
-let carta2 = `<div class="card" onclick="virarCarta(this);">
-<img class="frente" src="./img/front.png" alt="">
-<img class="verso" src="./img/explodyparrot.gif" alt="">
-</div>`
-
-let carta3 = `<div class="card" onclick="virarCarta(this);">
-<img class="frente" src="./img/front.png" alt="">
-<img class="verso" src="./img/fiestaparrot.gif" alt="">
-</div>`
-
-let carta4 = `<div class="card" onclick="virarCarta(this);">
-<img class="frente" src="./img/front.png" alt="">
-<img class="verso" src="./img/metalparrot.gif" alt="">
-</div>`
-
-let carta5 = `<div class="card" onclick="virarCarta(this);">
-<img class="frente" src="./img/front.png" alt="">
-<img class="verso" src="./img/revertitparrot.gif" alt="">
-</div>`
-
-let carta6 = `<div class="card" onclick="virarCarta(this);">
-<img class="frente" src="./img/front.png" alt="">
-<img class="verso" src="./img/tripletsparrot.gif" alt="">
-</div>`
-
-let carta7 = `<div class="card" onclick="virarCarta(this);">
-<img class="frente" src="./img/front.png" alt="">
-<img class="verso" src="./img/unicornparrot.gif" alt="">
-</div>`
-
-const baralho = [carta1, carta2, carta3, carta4, carta5, carta6, carta7];
-
+function comparador() { 
+	return Math.random() - 0.5; 
+}
 
 function darCartas () {
     alert('oi')
-    //document.querySelector('.baralho').innerHTML = Math.random(numeroDeCartas)
+    //nomesGifs.sort(comparador);
+}
+
+for (let i = numeroDeCartas; i <= nomesGifs.length; i ++) {
+    let carta = `<div class="card" onclick="virarCarta(this);">
+    <img class="frente" src="./img/front.png" alt="">
+    <img class="verso" src="./img/${nomesGifs[i]}.gif" alt="">
+    </div>`;
+    
+    document.querySelector('.baralho').innerHTML += carta;
 }
 
 function virarCarta (elemento) {
