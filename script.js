@@ -13,20 +13,37 @@ function comparador() {
 	return Math.random() - 0.5; 
 }
 
-function darCartas () {
-    alert('oi')
-    //nomesGifs.sort(comparador);
-}
-
-for (let i = numeroDeCartas; i <= nomesGifs.length; i ++) {
+for (let i = 0; i < (numeroDeCartas/2); i ++) {
+    
     let carta = `<div class="card" onclick="virarCarta(this);">
     <img class="frente" src="./img/front.png" alt="">
     <img class="verso" src="./img/${nomesGifs[i]}.gif" alt="">
     </div>`;
+
+    nomesGifs.sort(comparador);
+    document.querySelector('.baralho').innerHTML += carta + carta;
+}
+let carta = "";
+
+function darCartas () {
+    alert('Vamos lá!');
     
-    document.querySelector('.baralho').innerHTML += carta;
+}
+let primeiraCarta = "";
+function virarCarta (elemento) {
+    primeiraCarta = "";
+    let carta = document.querySelector('.virada');
+    if (carta !== null) {
+        carta.classList.remove('virada');
+        carta = primeiraCarta;
+    }
+    
+    elemento.classList.add('virada');
+    comparar();
 }
 
-function virarCarta (elemento) {
-    elemento.classList.toggle("virada")
+
+function comparar () {
+   
 }
+
